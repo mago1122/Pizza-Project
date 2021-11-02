@@ -1,0 +1,238 @@
+$height: 600px;
+
+@mixin footer() {
+    color: #BB371A;
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(to right,#D5DBB3, #BB371A);
+    margin-top: 15px;
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Dosis', sans-serif;
+}
+section{
+    margin: 1rem;
+    text-align: center;
+}
+p{
+    margin: 1rem;
+}
+h1{
+    color: #BB371A;
+    margin: 1rem;
+    text-align: center;
+    font-size: 200%;
+}
+h2{
+    color: #EBA83A;
+    margin: 2rem;
+    text-align: center;
+    font-size: 150%;
+}
+.titulo2{
+    color: #EBA83A;
+    margin: 2rem;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bold;
+}
+h3{
+    color: #BB371A;
+}
+a{
+    text-decoration: none;
+    color: #BB371A;
+    margin: 5px, 5px, 5px, 0px;
+}
+a:hover{
+    color: rgb(70, 126, 73);
+}
+ul{ 
+    list-style-type: none;
+}
+ol li{ /*Presente en menu.html*/
+    list-style-type: none;
+}
+ul li a:hover{ 
+    color: rgb(70, 126, 73);
+}
+ul ul{
+    position: absolute;
+    display: block;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 2s;
+}
+ul ul li{
+    display: block;
+}
+ul li:hover ul{
+    display: block;
+    font-size: 16px;
+    opacity: 1;
+    height: auto;
+}
+nav{ /*MENU PRINCIPAL*/
+    margin: 10px;
+    /*background-color: #ffffff;*/
+    color: #BB371A;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    list-style-type: none;   
+}
+.main{
+    margin: 0px;
+}
+.mainMenuLi:hover{
+    transform: scale(1.2,1.2);
+
+}
+.mainMenuLi{ /*Items del menu principal en index.html*/
+    display: inline-block;
+    margin-top: 0px;
+    padding: 20px 20px 30px 5px;
+    font-size: 18px;
+}
+table{ /*Presente en menu.html, clasicas.html y promociones.html*/
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fieldset{ /*Presente en contacto.html*/
+    background: linear-gradient(to bottom,#D5DBB3, white);
+    width: 500px;
+    text-align: center;
+}
+
+th{ /*Presente en menu.html, clasicas.html y promociones.html*/
+    background: linear-gradient(to bottom,#BB371A ,#D5DBB3, white);
+}
+.nosotros{
+    font-size: 18px;
+    padding: 50px;
+}
+.leerMas{ /*Boton de Leer mas presente en seccion Pizza Project en -> index.html*/
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+.leerMas:hover{
+    background-color: red;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+}
+.backComment{ /*Fondo de la seccion de -> Reseñas en -> index.html CONSIGNA*/
+    background-image: url(../img/reseñasbackground3.jpg);   
+    background-size: cover; 
+    padding-top: 100px;
+    min-height: $height;
+    max-height: $height*1.5;
+    margin: 0px;
+}
+.client{ /*Nombre de cliente dentro de ->  Reseñas en -> index.html*/
+    color: #EBA83A;
+    font-weight: bold;
+    font-size: x-large;
+      
+    margin-top: 80px;
+}
+.sectionComment{ /*Contenido del comentario en  -> Reseñas en -> index.html*/
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    width: auto;
+    padding-bottom: 70px;
+}
+
+.delivery{ /*Seccion de delivery y formas de pago en -> index.html*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 5px;
+
+    grid-template-areas: 
+        "imagen texto"
+        "imagen texto2";
+}
+.imagen{ /*Imagen en SECCION 4 - Envios*/
+    grid-area: imagen;
+    background-image: url(../img/envios.jpg);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.texto{ /**/
+    grid-area: texto;
+    align-self: center center;
+    
+}
+footer{ /*Pie de pagina*/
+    @include footer;
+}
+.sucursales{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.sucursalesTexto{
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    color: #BB371A;
+    margin: 15px 0px 30px 0px;
+}
+.header{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    align-items: center;
+    align-content: space-between;
+    background: linear-gradient(to bottom,#BB371A ,#D5DBB3, white);
+    border-radius: 20px, 0px;
+}
+
+@media only screen and (max-width: 760px){
+
+    .header{
+        display: flex;
+        flex-direction: column;  
+    }
+    .mainMenuLi{
+        padding: 8px; 
+        font-size: 17px;
+    }
+    nav ul{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
+    ul ul{
+        display: none;
+    }
+    .delivery{ 
+        display: flex;
+        flex-direction: column;        
+    }
+    .imagen{ 
+        min-height: 400px;
+    }
+}
+@media only screen and (max-width: 320px){
+    .imagen{
+        display: none;
+    }
+    .logo{
+        display: none;
+    }
+
+}
